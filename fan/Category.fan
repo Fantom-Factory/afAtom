@@ -1,3 +1,4 @@
+using xml
 
 class Category {
 	
@@ -7,5 +8,19 @@ class Category {
 	
 	new make(Str term) {
 		this.term = term
+	}
+	
+	XElem toXml() {
+		category := XElem("category")
+		
+		category.addAttr("term", term)
+		
+		if (scheme != null)
+			category.addAttr("scheme", scheme.toStr)
+
+		if (label != null)
+			category.addAttr("label", label)
+		
+		return category
 	}
 }

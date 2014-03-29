@@ -1,8 +1,9 @@
+using xml
 
 class Feed {
 
 	Uri			id
-	Str			title
+	Text		title
 	DateTime	updated
 	
 	Person?		author
@@ -19,7 +20,13 @@ class Feed {
 	
 	new make(Uri id, Str title, DateTime updated) {
 		this.id			= id
-		this.title		= title
+		this.title		= Text(title)
 		this.updated	= updated
+	}
+	
+	XElem toXml() {
+		feed := XElem("feed")
+		
+		return feed
 	}
 }

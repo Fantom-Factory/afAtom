@@ -6,27 +6,77 @@ class Feed {
 	Text		title
 	DateTime	updated
 	
-	Person?		author
-	Link?		link
+	Person[]	authors			:= Person[,]
+	Link[]		links			:= Link[,]
+	Entry[]		entries			:= Entry[,]
 	
 	Category[]	categories		:= Category[,]
 	Person[]	contributors	:= Person[,]
-	Generator?	generator
 	Uri?		icon
 	Uri?		logo
 	Text?		rights
 	Text?		subtitle
+	Generator?	generator
 	
-	
-	new make(Uri id, Str title, DateTime updated) {
+	new make(Uri id, Text title, DateTime updated) {
 		this.id			= id
-		this.title		= Text(title)
+		this.title		= title
 		this.updated	= updated
 	}
 	
-	XElem toXml() {
+	XDoc toXml() {
 		feed := XElem("feed")
+		feed.add(XAttr(XNs("", `http://www.w3.org/2005/Atom`)))
+
+		feed.add(XElem("id") {
+			XText(id.toStr),
+		})		
+
+		feed.add(title.toXml("title"))
+
+		if (subtitle != null)
+			feed.add(subtitle.toXml("subtitle"))
 		
-		return feed
+		feed.add(XElem("updated") {
+			XText(updated.toIso),
+		})
+		
+		authors.each { 
+			feed.add(it.toXml("author"))
+		}
+		
+		links.each {
+			feed.add(it.toXml)
+		}
+		
+		categories.each {
+			feed.add(it.toXml)
+		}
+		
+		contributors.each {
+			feed.add(it.toXml("contributor"))
+		}
+		
+		if (icon != null)
+			feed.add(XElem("icon") {
+				XText(icon.toStr),
+			})
+
+		if (logo != null)
+			feed.add(XElem("logo") {
+				XText(logo.toStr),
+			})
+
+		if (rights != null)
+			feed.add(rights.toXml("rights"))
+
+		if (generator != null)
+			feed.add(generator.toXml)
+
+		entries.each {   
+			feed.add(it.toXml)
+		}
+		
+		return XDoc(feed)
 	}
 }

@@ -1,8 +1,22 @@
 using xml
 
-class TestFeed : AtomTest {
+internal class TestFeed : AtomTest {
 	
-	Void test() {		
+	Void testBriefFeed() {
+		feed := Feed(`urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6`, Text("Example Feed"), DateTime.fromIso("2003-12-13T18:30:02Z"))
+		feed.authors.add(Person("John Doe"))
+		feed.links.add(Link(`http://example.org/`))
+		feed.entries.add(
+			Entry(`urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a`, Text("Atom-Powered Robots Run Amok"), DateTime.fromIso("2003-12-13T18:30:02Z")) {
+				it.summary	= Text("Some text.")
+				it.links.add(Link(`http://example.org/2003/12/13/atom03`))
+			}
+		)
+
+		verifyFeed(feed, `test/atom-brief.xml`)		
+	}
+	
+	Void testExtensiveFeed() {		
 		feed := Feed(`tag:example.org,2003:3`, Text("dive into mark"), DateTime.fromIso("2005-07-31T12:29:29Z"))
 		feed.subtitle = Text("A <em>lot</em> of effort went into making this effortless", TextType.html)
 		feed.links.add(Link(`http://example.org/`) {
@@ -41,16 +55,6 @@ class TestFeed : AtomTest {
 		}
 		feed.entries.add(entry)
 
-
-		feedXml := feed.toXml.writeToStr.trim.splitLines		
-		testXml := `test/atom-feed.xml`.toFile.readAllStr.trim.splitLines
-
-		Env.cur.err.printLine(feed.toXml.writeToStr)
-
-		(0..<feedXml.size).each |i| {
-			verifyEq(feedXml[i], testXml[i])			
-		}
-
-		verifyEq(feedXml, testXml)
+		verifyFeed(feed, `test/atom-extensive.xml`)
 	}
 }

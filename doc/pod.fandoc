@@ -3,8 +3,9 @@ Overview [#overview]
 *'Atom' is a support library that aids Alien-Factory in the development of libraries, frameworks and applications.
 Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
 
-(Internal) A library for creating Atom (RSS) feed documents
+'Atom' is a library for creating Atom (RSS) Feed Documents.
 
+The [Atom Syndication Format]`http://tools.ietf.org/html/rfc4287`, or Atom for short, is the technically advanced successor to [RSS v2.0]`http://www.rssboard.org/rss-specification`
 
 
 Install [#Install]
@@ -25,6 +26,21 @@ pre>
   Example here
 <pre
 
+
+
+Usage [#usage]
+**************
+
+[The Atom Syndication Format]`http://tools.ietf.org/html/rfc4287` specification.
+
+[atomenabled.org]`http://atomenabled.org/developers/syndication` giving a more readable version.
+
+
+BedSheet Integration [#bedSheet]
+********************************
+
+
+application/atom+xml media type.
 
 
 Release Notes [#releaseNotes]

@@ -6,12 +6,12 @@
  <author>
   <name>John Doe</name>
  </author>
- <link href='http://example.org/'/>
+ <link href='http://example.org/' rel='alternate'/>
  <entry>
   <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
   <title type='text'>Atom-Powered Robots Run Amok</title>
   <updated>2003-12-13T18:30:02Z</updated>
-  <link href='http://example.org/2003/12/13/atom03'/>
+  <link href='http://example.org/2003/12/13/atom03' rel='alternate'/>
   <summary type='text'>Some text.</summary>
  </entry>
 </feed>

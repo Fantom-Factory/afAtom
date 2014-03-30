@@ -33,10 +33,8 @@ enum class TextType {
 			return XText(str)
 		if (this == xhtml) {
 			div := XElem("div")
-			div.add(XAttr(XNs("", `http://www.w3.org/1999/xhtml`)))
-			parser := XParser(str.in)
-			parser.next
-			div.add(parser.parseElem)
+			div.add(XAttr(XNs("", `http://www.w3.org/1999/xhtml`)))			
+			div.add(Utils.parseXml(str))
 			return div
 		}
 		throw Err("WTF is a ${this}?")

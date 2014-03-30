@@ -4,7 +4,7 @@ class Build : BuildPod {
 
 	new make() {
 		podName = "afAtom"
-		summary = "(Internal) A library for creating Atom (RSS) feed documents"
+		summary = "(Internal) A library for creating Atom (RSS) Feed Documents"
 		version = Version("0.0.1")
 
 		meta = [
@@ -17,7 +17,6 @@ class Build : BuildPod {
 			"repo.private"	: "true"
 		]
 
-
 		depends = [
 			"sys 1.0",
 			"xml 1.0"
@@ -28,9 +27,23 @@ class Build : BuildPod {
 
 		docApi = true
 		docSrc = true
-
+	}
+	
+	@Target { help = "Compile to pod file and associated natives" }
+	override Void compile() {
 		// exclude test code when building the pod
 		srcDirs = srcDirs.exclude { it.toStr.startsWith("test/") }
 		resDirs = resDirs.exclude { it.toStr.startsWith("test/") }
+		
+		super.compile
+		
+		// copy src to %FAN_HOME% for F4 debugging
+		log.indent
+		destDir := Env.cur.homeDir.plus(`src/${podName}/`)
+		destDir.delete
+		destDir.create		
+		`fan/`.toFile.copyInto(destDir)		
+		log.info("Copied `fan/` to ${destDir.normalize}")
+		log.unindent
 	}
 }

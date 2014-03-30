@@ -121,6 +121,16 @@ class Feed {
 		feed := XElem("feed")
 		feed.add(XAttr(XNs("", `http://www.w3.org/2005/Atom`)))
 
+		addMetaData(feed)
+		
+		entries.each {   
+			feed.add(it.toXml)
+		}
+		
+		return XDoc(feed)
+	}
+	
+	internal XElem addMetaData(XElem feed) {
 		if (xmlLang != null)
 			feed.addAttr("lang", xmlLang.toStr, xmlNs)
 
@@ -171,11 +181,7 @@ class Feed {
 
 		if (generator != null)
 			feed.add(generator.toXml)
-
-		entries.each {   
-			feed.add(it.toXml)
-		}
 		
-		return XDoc(feed)
+		return feed
 	}
 }

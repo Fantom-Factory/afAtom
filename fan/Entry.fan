@@ -97,8 +97,7 @@ class Entry {
 	**     <updated>2003-12-13T18:30:02Z</updated>
 	**     <rights>© 2005 Example, Inc.</rights>
 	**   </source>
-	// TODO: entry source w test
-//	Feed?		source		// must not have any Entry elements
+	Feed?		source
 	
 	** *(Optional)* 
 	** Conveys information about rights, e.g. copyrights, held in and over the entry.
@@ -126,7 +125,7 @@ class Entry {
 	}
 	
 	
-	
+
 	internal XElem toXml() {
 		entry := XElem("entry")
 		
@@ -172,6 +171,9 @@ class Entry {
 		
 		if (rights != null)
 			entry.add(rights.toXml("rights"))
+		
+		if (source != null)
+			entry.add(source.addMetaData(XElem("source")))
 		
 		if (content != null)
 			entry.add(content.toXml)

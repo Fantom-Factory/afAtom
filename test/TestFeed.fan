@@ -50,9 +50,7 @@ internal class TestFeed : AtomTest {
 		})
 		entry.contributors.add(Person("Sam Ruby"))
 		entry.contributors.add(Person("Joe Gregorio"))
-		entry.content	= Content("<p><i>[Update: The Atom draft is finished.]</i></p>", TextType.xhtml, `http://diveintomark.org/`) {
-			it.xmlLang	= "en" 
-		}
+		entry.content	= Content("<p><i>[Update: The Atom draft is finished.]</i></p>", TextType.xhtml, `http://diveintomark.org/`, "en")
 		feed.entries.add(entry)
 
 		verifyFeed(feed, `test/atom-extensive.xml`)

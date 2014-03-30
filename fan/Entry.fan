@@ -1,31 +1,140 @@
 using xml
 
+** Represents an Atom Entry Document.
+** An example of an entry would be a single post on a weblog.
+** 
+** @see The [atom:entry]`http://tools.ietf.org/html/rfc4287#section-4.1.2` Element
 class Entry {
-	
+	private static const XNs xmlNs	:= XNs("xml", ``)
+
+	** *(Required)* 
+	** Identifies the entry using a universally unique and permanent URI. 
+	** Two entries in a feed can have the same value for id if they represent the same entry at 
+	** different points in time.
+	** 
+	**   <id>http://example.com/blog/1234</id>
 	Uri			id
+	
+	** *(Required)* 
+	** Contains a human readable title for the entry. This value should not be blank.
+	** 
+	**   <title>Atom-Powered Robots Run Amok</title>
 	Text		title
+
+	** *(Required)* 
+	** Indicates the last time the entry was modified in a significant way. 
+	** This value need not change after a typo is fixed, only after a substantial modification. 
+	** Generally, different entries in a feed will have different updated timestamps.
+	** 
+	**   <updated>2003-12-13T18:30:02-05:00</updated>
 	DateTime	updated
 	
+	** *(Recommended)* 
+	** Authors of the entry. An entry must contain at least one author element 
+	** unless there is an author element in the enclosing feed, or there is an author element 
+	** in the enclosed source element.
+	** 
+	**   <author>
+	**     <name>John Doe</name>
+	**   </author>
 	Person[]	authors			:= Person[,]
-	Content?	content		// warn - it may not be text!
+	
+	** *(Recommended)* 
+	** Contains or links to the complete content of the entry. 
+	** Content must be provided if there is no alternate link, and should be provided if there is 
+	** no summary.
+	** 
+	**   <content type="text">complete story here</content>
+	Content?	content
+	
+	** *(Recommended)* 
+	** Identifies a related Web page. 
+	** The type of relation is defined by the 'rel' attribute. 
+	** An entry is limited to one 'alternate' per 'type' and 'hreflang'. 
+	** An entry must contain an 'alternate' link if there is no content element.
+	** 
+	**   <link rel="alternate" href="/blog/1234"/>
 	Link[]		links			:= Link[,]
+	
+	** *(Recommended)* 
+	** Conveys a short summary, abstract, or excerpt of the entry. 
+	** Summary should be provided if there either is no content provided for the entry, or that 
+	** content is not inline (i.e., contains a 'src' attribute), or if the content is encoded in 
+	** base64.
+	** 
+	**   <summary type="text">Some text.</summary>
 	Text?		summary
 	
+	** *(Optional)* 
+	** Contains the time of the initial creation or first availability of the entry.
+	** 
+	**   <published>2003-12-13T09:17:51-08:00</published>
 	DateTime?	published
+	
+	** *(Optional)* 
+	** Specifies categories that the entry belongs to.
+	** 
+	**   <category term="technology"/>
 	Category[]	categories		:= Category[,]
+	
+	** *(Optional)* 
+	** Contributors to the entry.
+	** 
+	**   <contributor>
+	**     <name>Jane Doe</name>
+	**   </contributor>
 	Person[]	contributors	:= Person[,]
+	
+	** *(Optional)* 
+	** If an entry is copied from one feed into another feed, then the source feed‘s metadata (all 
+	** child elements of feed other than the entry elements) should be preserved if the source feed 
+	** contains any of the child elements 'author', 'contributor', 'rights', or 'category' and 
+	** those child elements are not present in the source entry.
+	** 
+	**   <source>
+	**     <id>http://example.org/</id>
+	**     <title>Fourty-Two</title>
+	**     <updated>2003-12-13T18:30:02Z</updated>
+	**     <rights>© 2005 Example, Inc.</rights>
+	**   </source>
+	// TODO: entry source w test
 //	Feed?		source		// must not have any Entry elements
+	
+	** *(Optional)* 
+	** Conveys information about rights, e.g. copyrights, held in and over the entry.
+	** 
+	**   <rights type="html">
+	**     &amp;copy; 2005 John Doe
+	**   </rights>
 	Text?		rights
 
+	** *(Optional)* 
+	** Used to control how relative URIs are resolved.
+	Uri? xmlBase
+
+	** *(Optional)* 
+	** Used to identify the language of any human readable text.  
+	Str? xmlLang
+
 	
+	
+	** Creates an 'Entry' with the required fields.
 	new make(Uri id, Text title, DateTime updated) {
 		this.id			= id
 		this.title		= title
 		this.updated	= updated
 	}
 	
-	XElem toXml() {
+	
+	
+	internal XElem toXml() {
 		entry := XElem("entry")
+		
+		if (xmlLang != null)
+			entry.addAttr("lang", xmlLang.toStr, xmlNs)
+
+		if (xmlBase != null)
+			entry.addAttr("base", xmlBase.toStr, xmlNs)
 		
 		entry.add(XElem("id") {
 			XText(id.toStr),

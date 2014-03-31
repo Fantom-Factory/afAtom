@@ -22,7 +22,8 @@ class Category {
 		this.term = term
 	}
 	
-	internal XElem toXml() {
+	** Creates a '<category>' element.
+	virtual XElem toXml() {
 		category := XElem("category")
 		
 		category.addAttr("term", term)

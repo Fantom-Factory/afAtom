@@ -22,7 +22,8 @@ class Generator {
 		this.name = name
 	}
 	
-	internal XElem toXml() {
+	** Creates a '<generator>' element.
+	virtual XElem toXml() {
 		generator := XElem("generator")
 		
 		if (uri != null)

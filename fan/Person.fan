@@ -22,7 +22,8 @@ class Person {
 		this.name = name
 	}
 	
-	internal XElem toXml(Str elementName) {
+	** Creates a Person element with the given element name.
+	virtual XElem toXml(Str elementName) {
 		person := XElem(elementName)
 		
 		person.add(XElem("name") {

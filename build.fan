@@ -5,7 +5,7 @@ class Build : BuildPod {
 	new make() {
 		podName = "afAtom"
 		summary = "(Internal) A library for creating Atom (RSS) Feed Documents"
-		version = Version("1.0.0")
+		version = Version("1.0.1")
 
 		meta = [
 			"org.name"		: "Alien-Factory",
@@ -14,7 +14,7 @@ class Build : BuildPod {
 			"proj.uri"		: "http://www.fantomfactory.org/pods/afAtom",
 			"vcs.uri"		: "https://bitbucket.org/AlienFactory/afatom",
 			"license.name"	: "The MIT Licence",	
-			"repo.private"	: "false"
+			"repo.private"	: "true"
 		]
 
 		depends = [

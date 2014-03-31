@@ -67,7 +67,8 @@ class Content {
 		
 		// from Str
 		if (this.content != null && mimeType != null) {
-			mime := mimeType.noParams.toStr.lower 
+			// FUTURE: Fantom 1.0.66 - use MimeType.noParams()  
+			mime := "${mimeType.mediaType}/${mimeType.subType}"  
 			content.addAttr("type", mimeType.toStr)
 			
 			if (mime.endsWith("+xml") || mime.endsWith("/xml")) {

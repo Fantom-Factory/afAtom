@@ -43,6 +43,11 @@ BedSheet Integration [#bedSheet]
 application/atom+xml media type.
 
 
+explain why xml:base is a Str and not a URI
+ -> 		// Remove trailing slash from host to prevent double slashes when absolute URIs are appended on feed clients, e.g. `www.ff.org//content`
+		// The problem is, URI adds it automatically! --> Env.cur.err.printLine(`http://www.dude.com`) --> http://www.dude.com/
+
+
 Release Notes [#releaseNotes]
 *****************************
 

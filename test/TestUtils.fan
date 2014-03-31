@@ -12,5 +12,11 @@ internal class TestUtils : AtomTest {
 			Content("<judge whoops>dredd</judge>", MimeType("text/xml")).toXml
 		}
 	}
+
+	Void testInvalidXml3() {
+		verifyErrTypeAndMsg(ParseErr#, "XML is only allowed ONE root element") {
+			Content("<span>judge</span><span>dredd</span>", MimeType("text/xml")).toXml
+		}
+	}
 	
 }

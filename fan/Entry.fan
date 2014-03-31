@@ -115,18 +115,15 @@ class Entry {
 	** Used to identify the language of any human readable text.  
 	Str? xmlLang
 
-	
-	
 	** Creates an 'Entry' with the required fields.
 	new make(Uri id, Text title, DateTime updated) {
 		this.id			= id
 		this.title		= title
 		this.updated	= updated
 	}
-	
-	
 
-	internal XElem toXml() {
+	** Creates an '<entry>' element.
+	virtual XElem toXml() {
 		entry := XElem("entry")
 		
 		if (xmlLang != null)

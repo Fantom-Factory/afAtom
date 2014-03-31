@@ -29,7 +29,8 @@ class Text {
 		this.type 		= type
 	}
 	
-	internal XElem toXml(Str elementName) {
+	** Creates a Text element with the given element name.
+	virtual XElem toXml(Str elementName) {
 		text := XElem(elementName)
 
 		if (xmlLang != null)

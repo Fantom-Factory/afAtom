@@ -41,7 +41,8 @@ class Link {
 		this.rel 	= rel
 	}
 
-	internal XElem toXml() {
+	** Creates a '<link>' element.
+	virtual XElem toXml() {
 		link := XElem("link")
 		
 		link.addAttr("href", href.toStr)

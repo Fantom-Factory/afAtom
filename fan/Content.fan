@@ -47,7 +47,8 @@ class Content {
 		this.mimeType	= type
 	}
 	
-	internal XElem toXml() {
+	** Creates a '<content>' element.
+	virtual XElem toXml() {
 		// from Text
 		if (this.content != null && textType != null) {
 			return Text(this.content, textType) {

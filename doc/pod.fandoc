@@ -115,9 +115,8 @@ Note that Atom feeds should be served with the 'application/atom+xml' mime type.
 
 
 
-
-Auto-Discovery
-**************
+Auto-Discovery [autoDiscovery]
+******************************
 Some browsers, such as [Firefox]`http://toodifficult.com/keeping-up-with-news-using-rss/`, automatically know when a site has an Atom or RSS feed and contain features to easily let you subscribe.
 To enable this, you need to add a bit of HTML to your web page:
 

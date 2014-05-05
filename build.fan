@@ -13,7 +13,8 @@ class Build : BuildPod {
 			"proj.name"		: "Atom",
 			"proj.uri"		: "http://www.fantomfactory.org/pods/afAtom",
 			"vcs.uri"		: "https://bitbucket.org/AlienFactory/afatom",
-			"license.name"	: "The MIT Licence",	
+			"license.name"	: "The MIT Licence",
+			"tags"			: "web",
 			"repo.private"	: "true"
 		]
 
@@ -23,7 +24,7 @@ class Build : BuildPod {
 		]
 
 		srcDirs = [`test/`, `fan/`]
-		resDirs = [`doc/`, `test/`]
+		resDirs = [`licence.txt`, `doc/`, `test/`]
 
 		docApi = true
 		docSrc = true
@@ -31,10 +32,7 @@ class Build : BuildPod {
 	
 	@Target { help = "Compile to pod file and associated natives" }
 	override Void compile() {
-		// exclude test code when building the pod
-		srcDirs = srcDirs.exclude { it.toStr.startsWith("test/") }
-		resDirs = resDirs.exclude { it.toStr.startsWith("test/") }
-		
+		// see "stripTest" in `/etc/build/config.props` to exclude test src & res dirs
 		super.compile
 		
 		// copy src to %FAN_HOME% for F4 debugging

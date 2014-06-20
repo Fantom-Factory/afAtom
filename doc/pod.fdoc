@@ -1,8 +1,5 @@
 Overview [#overview]
 ********************
-*'Atom' is a support library that aids Alien-Factory in the development of other libraries, frameworks and applications.
-Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
-
 'Atom' is a library for creating Atom (RSS) Feed Documents.
 
 The [Atom Syndication Format]`http://tools.ietf.org/html/rfc4287`, or Atom for short, is the technically advanced successor to [RSS v2.0]`http://www.rssboard.org/rss-specification`.
@@ -15,13 +12,19 @@ See [atomenabled.org]`http://atomenabled.org/developers/syndication` for a more 
 
 Install [#Install]
 ******************
-Install 'Atom' with the Fantom Repository Manager ( [fanr]`http://fantom.org/doc/docFanr/Tool.html#install` ):
+Install '@{project.name}' with the Fantom Repository Manager ( [fanr]`docFanr::Tool.install` ):
 
-  $ fanr install -r http://repo.status302.com/fanr/ afAtom
+  C:\> fanr install -r http://repo.status302.com/fanr/ @{pod.name}
 
 To use in a [Fantom]`http://fantom.org/` project, add a dependency to 'build.fan':
 
-  depends = ["sys 1.0", ..., "afAtom 1.0+"]
+  depends = ["sys 1.0", ..., "@{pod.name} @{pod.version}+"]
+
+
+
+Documentation [#documentation]
+******************************
+Full API & fandocs are available on the [Status302 repository]`http://repo.status302.com/doc/@{pod.name}/`.
 
 
 
@@ -77,7 +80,7 @@ C:\> fan Example.fan
 
 BedSheet Integration [#bedSheet]
 ********************************
-To serve an Atom feed with [BedSheet]`http://www.fantomfactory.org/pods/afBedSheet` first add a 'Route' to your 'AppModule' that configures the feed URI and the request handler:
+To serve an Atom feed with [BedSheet]`pod:afBedSheet` first add a 'Route' to your 'AppModule' that configures the feed URI and the request handler:
 
 pre>
 using afIoc

@@ -14,8 +14,6 @@ internal class AtomTest : Test {
 	}
 
 	Void verifyXml(Str atom, Str xml) {
-		Env.cur.err.printLine(atom)
-
 		atomXml := atom.trim.splitLines		
 		testXml := xml.trim.splitLines
 

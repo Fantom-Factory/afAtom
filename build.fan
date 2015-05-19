@@ -9,9 +9,9 @@ class Build : BuildPod {
 
 		meta = [
 			"proj.name"		: "Atom",
-			"internal"		: "true",
-			"tags"			: "web",
-			"repo.private"	: "true"
+			"repo.internal"	: "true",
+			"repo.tags"		: "web",
+			"repo.public"	: "false"
 		]
 
 		depends = [
@@ -20,6 +20,6 @@ class Build : BuildPod {
 		]
 
 		srcDirs = [`test/`, `fan/`]
-		resDirs = [`test/`]
+		resDirs = [`doc/`, `test/`]
 	}	
 }

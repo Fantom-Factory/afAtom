@@ -7,10 +7,14 @@ enum class TextType {
 	
 	** Denotes plain text with no entity escaped html.
 	** 
+	**   syntax: xml
+	** 
 	**   <title type="text">AT&amp;T bought by SBC!</title>
 	text,
 	
 	** Denotes entity escaped html.
+	** 
+	**   syntax: xml
 	** 
 	**   <title type="html">
 	**     AT&amp;amp;T bought &lt;b&gt;by SBC&lt;/b&gt;!
@@ -18,6 +22,8 @@ enum class TextType {
 	html,
 	
 	** Denotes inline xhtml, wrapped in a div element with an XHTML namespace.
+	** 
+	**   syntax: xml
 	** 
 	**   <title type="xhtml">
 	**     <div xmlns="http://www.w3.org/1999/xhtml">

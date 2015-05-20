@@ -1,5 +1,5 @@
-Overview [#overview]
-********************
+Overview
+********
 'Atom' is a library for creating Atom (RSS) Feed Documents.
 
 The [Atom Syndication Format]`http://tools.ietf.org/html/rfc4287`, or Atom for short, is the technically advanced successor to [RSS v2.0]`http://www.rssboard.org/rss-specification`.
@@ -10,8 +10,8 @@ See [atomenabled.org]`http://atomenabled.org/developers/syndication` for a more 
 
 
 
-Quick Start [#quickStart]
-*************************
+Quick Start
+***********
 1. Create a text file called 'Example.fan':
     syntax: fantom
 
@@ -61,8 +61,8 @@ Quick Start [#quickStart]
 
 
 
-BedSheet Integration [#bedSheet]
-********************************
+BedSheet Integration
+********************
 To serve an Atom feed with [BedSheet]`pod:afBedSheet` first add a 'Route' to your 'AppModule' that configures the feed URI and the request handler:
 
 pre>
@@ -105,8 +105,8 @@ Note that Atom feeds should be served with the 'application/atom+xml' mime type.
 
 
 
-Auto-Discovery [#autoDiscovery]
-*******************************
+Auto-Discovery
+**************
 Some browsers, such as [Firefox]`http://toodifficult.com/keeping-up-with-news-using-rss/`, automatically know when a site has an Atom or RSS feed and contain features to easily let you subscribe.
 To enable this, you need to add a bit of HTML to your web page:
 
@@ -128,12 +128,4 @@ This old article in the WHATWG Blog on [Feed Autodiscovery]`http://blog.whatwg.o
 But its absence in the HTML5 specification on [Link types]`http://www.w3.org/TR/html5/links.html#linkTypes` suggests it never took off.
 Also [Section 4.8.4.1 Link type "alternate"]`http://www.w3.org/TR/html5/links.html#rel-alternate` specifically says 'alternate' should be used for Atom and RSS feeds.
 
-
-
-Release Notes [#releaseNotes]
-*****************************
-
-v1.0.0 [#v1.0.0]
-================
- - New: Initial release.
 

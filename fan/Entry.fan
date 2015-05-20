@@ -12,11 +12,15 @@ class Entry {
 	** Two entries in a feed can have the same value for id if they represent the same entry at 
 	** different points in time.
 	** 
+	**   syntax: xml
+	** 
 	**   <id>http://example.com/blog/1234</id>
 	Uri			id
 	
 	** *(Required)* 
 	** Contains a human readable title for the entry. This value should not be blank.
+	** 
+	**   syntax: xml
 	** 
 	**   <title>Atom-Powered Robots Run Amok</title>
 	Text		title
@@ -26,6 +30,8 @@ class Entry {
 	** This value need not change after a typo is fixed, only after a substantial modification. 
 	** Generally, different entries in a feed will have different updated timestamps.
 	** 
+	**   syntax: xml
+	** 
 	**   <updated>2003-12-13T18:30:02-05:00</updated>
 	DateTime	updated
 	
@@ -33,6 +39,8 @@ class Entry {
 	** Authors of the entry. An entry must contain at least one author element 
 	** unless there is an author element in the enclosing feed, or there is an author element 
 	** in the enclosed source element.
+	** 
+	**   syntax: xml
 	** 
 	**   <author>
 	**     <name>John Doe</name>
@@ -44,6 +52,8 @@ class Entry {
 	** Content must be provided if there is no alternate link, and should be provided if there is 
 	** no summary.
 	** 
+	**   syntax: xml
+	** 
 	**   <content type="text">complete story here</content>
 	Content?	content
 	
@@ -52,6 +62,8 @@ class Entry {
 	** The type of relation is defined by the 'rel' attribute. 
 	** An entry is limited to one 'alternate' per 'type' and 'hreflang'. 
 	** An entry must contain an 'alternate' link if there is no content element.
+	** 
+	**   syntax: xml
 	** 
 	**   <link rel="alternate" href="/blog/1234"/>
 	Link[]		links			:= Link[,]
@@ -62,11 +74,15 @@ class Entry {
 	** content is not inline (i.e., contains a 'src' attribute), or if the content is encoded in 
 	** base64.
 	** 
+	**   syntax: xml
+	** 
 	**   <summary type="text">Some text.</summary>
 	Text?		summary
 	
 	** *(Optional)* 
 	** Contains the time of the initial creation or first availability of the entry.
+	** 
+	**   syntax: xml
 	** 
 	**   <published>2003-12-13T09:17:51-08:00</published>
 	DateTime?	published
@@ -80,6 +96,8 @@ class Entry {
 	** *(Optional)* 
 	** Contributors to the entry.
 	** 
+	**   syntax: xml
+	** 
 	**   <contributor>
 	**     <name>Jane Doe</name>
 	**   </contributor>
@@ -91,6 +109,8 @@ class Entry {
 	** contains any of the child elements 'author', 'contributor', 'rights', or 'category' and 
 	** those child elements are not present in the source entry.
 	** 
+	**   syntax: xml
+	** 
 	**   <source>
 	**     <id>http://example.org/</id>
 	**     <title>Fourty-Two</title>
@@ -101,6 +121,8 @@ class Entry {
 	
 	** *(Optional)* 
 	** Conveys information about rights, e.g. copyrights, held in and over the entry.
+	** 
+	**   syntax: xml
 	** 
 	**   <rights type="html">
 	**     &amp;copy; 2005 John Doe

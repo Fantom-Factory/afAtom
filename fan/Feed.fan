@@ -11,6 +11,8 @@ class Feed {
 	** renewable lease on your Internet domain name, then you can feel free to use your website’s 
 	** address.
 	** 
+	**   syntax: xml
+	** 
 	**   <id>http://example.com/</id>
 	Uri			id
 	
@@ -18,17 +20,22 @@ class Feed {
 	** A human readable title for the feed. Often the same as the title of the associated website. 
 	** This value should not be blank.
 	** 
+	**   syntax: xml
+	** 
 	**   <title>Example, Inc.</title>
 	Text		title
 	
 	** *(Required)* Indicates the last time the feed was modified in a significant way.
 	** 
+	**   syntax: xml
 	**   <updated>2003-12-13T18:30:02Z</updated>
 	DateTime	updated
 	
 	** *(Recommended)* 
 	** Authors of the feed. A feed must contain at least one author element unless all of the entry 
 	** elements contain at least one author element.
+	** 
+	**   syntax: xml
 	** 
 	**   <author>
 	**     <name>John Doe</name>
@@ -42,6 +49,8 @@ class Feed {
 	** A feed is limited to one 'alternate' per 'type' and 'hreflang'. A feed should contain a link 
 	** back to the feed itself.
 	** 
+	**   syntax: xml
+	** 
 	**   <link rel="self" href="http://example.com/feed" />
 	Link[]		links			:= Link[,]
 	
@@ -52,11 +61,15 @@ class Feed {
 	** *(Optional)* 
 	** Specifies a category that the feed belongs to.
 	** 
+	**   syntax: xml
+	** 
 	**   <category term="sports"/>
 	Category[]	categories		:= Category[,]
 	
 	** *(Optional)* 
 	** Contributors to the feed.
+	** 
+	**   syntax: xml
 	** 
 	**   <contributor>
 	**     <name>Jane Doe</name>
@@ -67,6 +80,8 @@ class Feed {
 	** Identifies a small image which provides iconic visual identification for the feed. 
 	** Icons should be square.
 	** 
+	**   syntax: xml
+	** 
 	**   <icon>/icon.jpg</icon>
 	Uri?		icon
 	
@@ -74,11 +89,15 @@ class Feed {
 	** Identifies a larger image which provides visual identification for the feed.
 	** Images should be twice as wide as they are tall.
 	** 
+	**   syntax: xml
+	** 
 	**   <logo>/logo.jpg</logo>
 	Uri?		logo
 	
 	** *(Optional)* 
 	** Conveys information about rights, e.g. copyrights, held in and over the feed.
+	** 
+	**   syntax: xml
 	** 
 	**   <rights> © 2005 John Doe </rights>
 	Text?		rights
@@ -86,11 +105,15 @@ class Feed {
 	** *(Optional)* 
 	** Contains a human-readable description or subtitle for the feed.
 	** 
+	**   syntax: xml
+	** 
 	**   <subtitle type="text">all your examples are belong to us</subtitle>
 	Text?		subtitle
 	
 	** *(Optional)* 
 	** Identifies the software used to generate the feed, for debugging and other purposes.
+	** 
+	**   syntax: xml
 	** 
 	**   <generator uri="/myblog.php" version="1.0">
 	**     Example Toolkit

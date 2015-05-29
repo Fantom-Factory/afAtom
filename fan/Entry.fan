@@ -152,10 +152,10 @@ class Entry {
 			entry.addAttr("lang", xmlLang.toStr, xmlNs)
 
 		if (xmlBase != null)
-			entry.addAttr("base", xmlBase.toStr, xmlNs)
+			entry.addAttr("base", xmlBase.encode, xmlNs)
 		
 		entry.add(XElem("id") {
-			XText(id.toStr),
+			XText(id.encode),
 		})		
 
 		entry.add(title.toXml("title"))

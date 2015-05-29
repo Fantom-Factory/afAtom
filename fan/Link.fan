@@ -45,7 +45,7 @@ class Link {
 	virtual XElem toXml() {
 		link := XElem("link")
 		
-		link.addAttr("href", href.toStr)
+		link.addAttr("href", href.encode)
 
 		link.addAttr("rel", rel)
 

@@ -27,7 +27,7 @@ class Generator {
 		generator := XElem("generator")
 		
 		if (uri != null)
-			generator.addAttr("uri", uri.toStr)
+			generator.addAttr("uri", uri.encode)
 		
 		if (version != null)
 			generator.addAttr("version", version)

@@ -32,12 +32,12 @@ class Person {
 
 		if (uri != null)
 			person.add(XElem("uri") {
-				XText(this.uri.toStr),
+				XText(this.uri.encode),
 			})
 		
 		if (email != null)
 			person.add(XElem("email") {
-				XText(email.toStr),
+				XText(email.encode),
 			})
 		
 		return person

@@ -158,10 +158,10 @@ class Feed {
 			feed.addAttr("lang", xmlLang.toStr, xmlNs)
 
 		if (xmlBase != null)
-			feed.addAttr("base", xmlBase.toStr, xmlNs)
+			feed.addAttr("base", xmlBase.encode, xmlNs)
 
 		feed.add(XElem("id") {
-			XText(id.toStr),
+			XText(id.encode),
 		})		
 
 		feed.add(title.toXml("title"))
@@ -191,12 +191,12 @@ class Feed {
 		
 		if (icon != null)
 			feed.add(XElem("icon") {
-				XText(icon.toStr),
+				XText(icon.encode),
 			})
 
 		if (logo != null)
 			feed.add(XElem("logo") {
-				XText(logo.toStr),
+				XText(logo.encode),
 			})
 
 		if (rights != null)

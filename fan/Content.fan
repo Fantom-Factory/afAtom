@@ -63,7 +63,7 @@ class Content {
 			content.addAttr("lang", xmlLang.toStr, xmlNs)
 		
 		if (xmlBase != null)
-			content.addAttr("base", xmlBase.toStr, xmlNs)
+			content.addAttr("base", xmlBase.encode, xmlNs)
 		
 		// from Str
 		if (this.content != null && mimeType != null) {
@@ -86,7 +86,7 @@ class Content {
 		
 		// from Src
 		if (src != null) {
-			content.addAttr("src", src.toStr)
+			content.addAttr("src", src.encode)
 			
 			if (mimeType != null)
 				content.addAttr("type", mimeType.toStr)

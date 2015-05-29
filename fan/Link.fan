@@ -17,7 +17,7 @@ class Link {
 	**  - 'related': an document related to the entry or feed.
 	**  - 'self': the feed itself.
 	**  - 'via': the source of the information provided in the entry.
-	Str		rel
+	Str			rel
 	
 	** *(Optional)* 
 	** Indicates the media type of the resource.

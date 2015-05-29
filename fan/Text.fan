@@ -37,7 +37,7 @@ class Text {
 			text.addAttr("lang", xmlLang.toStr, xmlNs)
 
 		if (xmlBase != null)
-			text.addAttr("base", xmlBase.toStr, xmlNs)
+			text.addAttr("base", xmlBase.encode, xmlNs)
 
 		text.addAttr("type", type.toStr)
 		

@@ -5,13 +5,13 @@ class Build : BuildPod {
 	new make() {
 		podName = "afAtom"
 		summary = "A library for creating Atom (RSS) Feed Documents"
-		version = Version("1.0.1")
+		version = Version("1.0.2")
 
 		meta = [
 			"proj.name"		: "Atom",
 			"repo.internal"	: "true",
 			"repo.tags"		: "web",
-			"repo.public"	: "false"
+			"repo.public"	: "true"
 		]
 
 		depends = [

@@ -1,18 +1,18 @@
-#Atom v1.0.0
+#Atom v1.0.2
 ---
 [![Written in: Fantom](http://img.shields.io/badge/written%20in-Fantom-lightgray.svg)](http://fantom.org/)
-[![pod: v1.0.0](http://img.shields.io/badge/pod-v1.0.0-yellow.svg)](http://www.fantomfactory.org/pods/afAtom)
+[![pod: v1.0.2](http://img.shields.io/badge/pod-v1.0.2-yellow.svg)](http://www.fantomfactory.org/pods/afAtom)
 ![Licence: MIT](http://img.shields.io/badge/licence-MIT-blue.svg)
 
 ## Overview
 
 *Atom is a support library that aids Alien-Factory in the development of other libraries, frameworks and applications. Though you are welcome to use it, you may find features are missing and the documentation incomplete.*
 
-`Atom` is a library for creating Atom (RSS) Feed Documents.
+Atom is a library for creating Atom (RSS) Feed Documents.
 
-The [Atom Syndication Format](http://tools.ietf.org/html/rfc4287), or Atom for short, is the technically advanced successor to [RSS v2.0](http://www.rssboard.org/rss-specification). This `Atom` library provides a collection of entities that let you compose an Atom Feed Document and serialise it to XML.
+The [Atom Syndication Format](http://tools.ietf.org/html/rfc4287), or Atom for short, is the technically advanced successor to [RSS v2.0](http://www.rssboard.org/rss-specification). This Atom library provides a collection of entities that let you compose an Atom Feed Document and serialise it to XML.
 
-`Atom` is an implementation of the [The Atom Syndication Format](http://tools.ietf.org/html/rfc4287). See [atomenabled.org](http://atomenabled.org/developers/syndication) for a more human readable version.
+Atom is an implementation of the [The Atom Syndication Format](http://tools.ietf.org/html/rfc4287). See [atomenabled.org](http://atomenabled.org/developers/syndication) for a more human readable version.
 
 ## Install
 

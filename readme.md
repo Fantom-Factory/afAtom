@@ -79,7 +79,7 @@ Full API & fandocs are available on the [Status302 repository](http://repo.statu
 
 ## BedSheet Integration
 
-To serve an Atom feed with [BedSheet](http://www.fantomfactory.org/pods/afBedSheet) first add a `Route` to your `AppModule` that configures the feed URI and the request handler:
+To serve an Atom feed with [BedSheet](http://pods.fantomfactory.org/pods/afBedSheet) first add a `Route` to your `AppModule` that configures the feed URI and the request handler:
 
 ```
 using afIoc

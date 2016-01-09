@@ -18,7 +18,7 @@ Atom is an implementation of the [The Atom Syndication Format](http://tools.ietf
 
 Install `Atom` with the Fantom Repository Manager ( [fanr](http://fantom.org/doc/docFanr/Tool.html#install) ):
 
-    C:\> fanr install -r http://repo.status302.com/fanr/ afAtom
+    C:\> fanr install -r http://pods.fantomfactory.org/fanr/ afAtom
 
 To use in a [Fantom](http://fantom.org/) project, add a dependency to `build.fan`:
 
@@ -26,7 +26,7 @@ To use in a [Fantom](http://fantom.org/) project, add a dependency to `build.fan
 
 ## Documentation
 
-Full API & fandocs are available on the [Status302 repository](http://repo.status302.com/doc/afAtom/).
+Full API & fandocs are available on the [Fantom Pod Repository](http://pods.fantomfactory.org/pods/afAtom/).
 
 ## Quick Start
 
